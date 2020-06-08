@@ -2,12 +2,12 @@
 const program = require('commander');
 const axios = require('axios');
 const chalk = require('chalk');
+const pkg = require('./package.json')
 // const consoleWeather = require('get-weather');
 
-program.usage('-c city').option('-c, --city [city]', 'City').parse(process.argv);
+program.version(pkg.version).usage('-c city').option('-c, --city [city]', 'City').parse(process.argv);
 
 const city = program.city;
-
 const urlApi = 'https://www.tianqiapi.com/api/?version=v1&appid=24987895&appsecret=FR7DZDy4';
 
 

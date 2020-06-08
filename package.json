@@ -1,10 +1,13 @@
 {
   "name": "get-local-weather",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Nodejs script for get local weather",
   "main": "index.js",
   "scripts": {
     "test": "test"
+  },
+  "bin": {
+    "get-local-weather": "./index.js"
   },
   "repository": {
     "type": "git",
