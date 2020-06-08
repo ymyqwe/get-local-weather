@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander');
 const axios = require('axios');
+const chalk = require('chalk');
 // const consoleWeather = require('get-weather');
 
 program.usage('-c city').option('-c, --city [city]', 'City').parse(process.argv);
@@ -31,6 +32,25 @@ const weahtherEmoji = {
       city,
     },
   });
-  console.log('result', result.data)
+  if (result.status !== 200) {
+    const message = result.data ? result.data.message : '请求出错'
+    throw new Error(message);
+  }
+  const { data } = result;
+
+  console.log("\n")
+  console.log(chalk.bgGreen(`Weather fetched on ${data.update_time}`));
+  console.log("\n")
+  data.data.forEach((item, index) => {
+    const { wea_img, day, tem, humidity, air, win_speed, wea } = item;
+    if (index === 0) {
+      console.log(`${data.city} ${weahtherEmoji[wea_img]} ${day}  🌡️ ${tem}  💧 ${humidity}  💨 ${air}  🌬 ${win_speed} ${wea}`)
+      console.log("===================================================")
+    } else {
+      console.log(`${data.city} ${weahtherEmoji[wea_img]} ${day}  🌡️ ${tem}  🌬 ${win_speed} ${wea}`)
+    }
+  })
+  console.log("\n")
 })()
+
 
