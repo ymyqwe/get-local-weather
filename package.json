@@ -1,0 +1,29 @@
+{
+  "name": "get-local-weather",
+  "version": "1.0.0",
+  "description": "Nodejs script for get local weather",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymyqwe/get-local-weather.git"
+  },
+  "keywords": [
+    "nodejs",
+    "weather",
+    "script"
+  ],
+  "author": "ManiaU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ymyqwe/get-local-weather/issues"
+  },
+  "homepage": "https://github.com/ymyqwe/get-local-weather#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0"
+  }
+}
